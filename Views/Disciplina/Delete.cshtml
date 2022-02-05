@@ -1,0 +1,62 @@
+﻿@model ProjetoUniversidade.Models.Disciplina
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h3>Excluir Cadastro</h3>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nomeDisciplina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nomeDisciplina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codigoDisciplina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigoDisciplina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numeroAulas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numeroAulas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.periodo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.periodo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Curso.nomeCurso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Curso.nomeCurso)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,66 @@
+﻿@model ProjetoUniversidade.Models.Aluno
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Aluno</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nomeAluno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nomeAluno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.matriculaAluno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.matriculaAluno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cpfAluno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cpfAluno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefoneAluno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefoneAluno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emailAluno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emailAluno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.senhaAluno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.senhaAluno)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdAluno }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

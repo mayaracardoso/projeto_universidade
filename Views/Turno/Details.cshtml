@@ -1,0 +1,25 @@
+﻿@model ProjetoUniversidade.Models.Turno
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h3>Detalhes do Cadastro</h3>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.descricaoTurno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descricaoTurno)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdTurno }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BaancoUniversidadeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Administrador">
+    <Key>
+      <PropertyRef Name="IdAdministrador" />
+    </Key>
+    <Property Name="IdAdministrador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="senha" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Aluno">
+    <Key>
+      <PropertyRef Name="IdAluno" />
+    </Key>
+    <Property Name="IdAluno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomeAluno" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="matriculaAluno" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cpfAluno" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="telefoneAluno" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="emailAluno" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="senhaAluno" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Aluno_Turma" Relationship="Self.FK_AlunoAluno_Turma" FromRole="Aluno" ToRole="Aluno_Turma" />
+  </EntityType>
+  <EntityType Name="Aluno_Turma">
+    <Key>
+      <PropertyRef Name="IdAluno_Turma" />
+    </Key>
+    <Property Name="IdAluno_Turma" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdTurma" Type="Int32" Nullable="false" />
+    <Property Name="IdAluno" Type="Int32" Nullable="false" />
+    <Property Name="media" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="faltas" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Aluno" Relationship="Self.FK_AlunoAluno_Turma" FromRole="Aluno_Turma" ToRole="Aluno" />
+    <NavigationProperty Name="Turma" Relationship="Self.FK_TurmaAluno_Turma" FromRole="Aluno_Turma" ToRole="Turma" />
+  </EntityType>
+  <EntityType Name="Curso">
+    <Key>
+      <PropertyRef Name="IdCurso" />
+    </Key>
+    <Property Name="IdCurso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomeCurso" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="duracao" Type="Int32" Nullable="false" />
+    <Property Name="modalidade" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="CursoTurno" Relationship="Self.FK_CursoCursoTurno" FromRole="Curso" ToRole="CursoTurno" />
+    <NavigationProperty Name="Disciplina" Relationship="Self.FK_CursoDisciplina" FromRole="Curso" ToRole="Disciplina" />
+  </EntityType>
+  <EntityType Name="CursoTurno">
+    <Key>
+      <PropertyRef Name="IdCursoTurno" />
+    </Key>
+    <Property Name="IdCursoTurno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdCurso" Type="Int32" Nullable="false" />
+    <Property Name="IdTurno" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Curso" Relationship="Self.FK_CursoCursoTurno" FromRole="CursoTurno" ToRole="Curso" />
+    <NavigationProperty Name="Turno" Relationship="Self.FK_TurnoCursoTurno" FromRole="CursoTurno" ToRole="Turno" />
+  </EntityType>
+  <EntityType Name="Disciplina">
+    <Key>
+      <PropertyRef Name="IdDisciplina" />
+    </Key>
+    <Property Name="IdDisciplina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomeDisciplina" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="codigoDisciplina" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="numeroAulas" Type="Int32" Nullable="false" />
+    <Property Name="periodo" Type="Int32" Nullable="false" />
+    <Property Name="IdCurso" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Curso" Relationship="Self.FK_CursoDisciplina" FromRole="Disciplina" ToRole="Curso" />
+    <NavigationProperty Name="Turma" Relationship="Self.FK_DisciplinaTurma" FromRole="Disciplina" ToRole="Turma" />
+  </EntityType>
+  <EntityType Name="Professor">
+    <Key>
+      <PropertyRef Name="IdProfessor" />
+    </Key>
+    <Property Name="IdProfessor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomeProfessor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="matriculaProfessor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cpfProfessor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="formacao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="telefoneProfessor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="emailProfessor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="senhaProfessor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Turma" Relationship="Self.FK_ProfessorTurma" FromRole="Professor" ToRole="Turma" />
+  </EntityType>
+  <EntityType Name="Turma">
+    <Key>
+      <PropertyRef Name="IdTurma" />
+    </Key>
+    <Property Name="IdTurma" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigoTurma" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdDisciplina" Type="Int32" Nullable="false" />
+    <Property Name="IdProfessor" Type="Int32" Nullable="false" />
+    <Property Name="DiaSemana" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Aluno_Turma" Relationship="Self.FK_TurmaAluno_Turma" FromRole="Turma" ToRole="Aluno_Turma" />
+    <NavigationProperty Name="Disciplina" Relationship="Self.FK_DisciplinaTurma" FromRole="Turma" ToRole="Disciplina" />
+    <NavigationProperty Name="Professor" Relationship="Self.FK_ProfessorTurma" FromRole="Turma" ToRole="Professor" />
+  </EntityType>
+  <EntityType Name="Turno">
+    <Key>
+      <PropertyRef Name="IdTurno" />
+    </Key>
+    <Property Name="IdTurno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descricaoTurno" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="CursoTurno" Relationship="Self.FK_TurnoCursoTurno" FromRole="Turno" ToRole="CursoTurno" />
+  </EntityType>
+  <Association Name="FK_AlunoAluno_Turma">
+    <End Role="Aluno" Type="Self.Aluno" Multiplicity="1" />
+    <End Role="Aluno_Turma" Type="Self.Aluno_Turma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aluno">
+        <PropertyRef Name="IdAluno" />
+      </Principal>
+      <Dependent Role="Aluno_Turma">
+        <PropertyRef Name="IdAluno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TurmaAluno_Turma">
+    <End Role="Turma" Type="Self.Turma" Multiplicity="1" />
+    <End Role="Aluno_Turma" Type="Self.Aluno_Turma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Turma">
+        <PropertyRef Name="IdTurma" />
+      </Principal>
+      <Dependent Role="Aluno_Turma">
+        <PropertyRef Name="IdTurma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CursoCursoTurno">
+    <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+    <End Role="CursoTurno" Type="Self.CursoTurno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Curso">
+        <PropertyRef Name="IdCurso" />
+      </Principal>
+      <Dependent Role="CursoTurno">
+        <PropertyRef Name="IdCurso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CursoDisciplina">
+    <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+    <End Role="Disciplina" Type="Self.Disciplina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Curso">
+        <PropertyRef Name="IdCurso" />
+      </Principal>
+      <Dependent Role="Disciplina">
+        <PropertyRef Name="IdCurso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TurnoCursoTurno">
+    <End Role="Turno" Type="Self.Turno" Multiplicity="1" />
+    <End Role="CursoTurno" Type="Self.CursoTurno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Turno">
+        <PropertyRef Name="IdTurno" />
+      </Principal>
+      <Dependent Role="CursoTurno">
+        <PropertyRef Name="IdTurno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DisciplinaTurma">
+    <End Role="Disciplina" Type="Self.Disciplina" Multiplicity="1" />
+    <End Role="Turma" Type="Self.Turma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Disciplina">
+        <PropertyRef Name="IdDisciplina" />
+      </Principal>
+      <Dependent Role="Turma">
+        <PropertyRef Name="IdDisciplina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfessorTurma">
+    <End Role="Professor" Type="Self.Professor" Multiplicity="1" />
+    <End Role="Turma" Type="Self.Turma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professor">
+        <PropertyRef Name="IdProfessor" />
+      </Principal>
+      <Dependent Role="Turma">
+        <PropertyRef Name="IdProfessor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BaancoUniversidadeEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Administrador" EntityType="Self.Administrador" />
+    <EntitySet Name="Aluno" EntityType="Self.Aluno" />
+    <EntitySet Name="Aluno_Turma" EntityType="Self.Aluno_Turma" />
+    <EntitySet Name="Curso" EntityType="Self.Curso" />
+    <EntitySet Name="CursoTurno" EntityType="Self.CursoTurno" />
+    <EntitySet Name="Disciplina" EntityType="Self.Disciplina" />
+    <EntitySet Name="Professor" EntityType="Self.Professor" />
+    <EntitySet Name="Turma" EntityType="Self.Turma" />
+    <EntitySet Name="Turno" EntityType="Self.Turno" />
+    <AssociationSet Name="FK_AlunoAluno_Turma" Association="Self.FK_AlunoAluno_Turma">
+      <End Role="Aluno" EntitySet="Aluno" />
+      <End Role="Aluno_Turma" EntitySet="Aluno_Turma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TurmaAluno_Turma" Association="Self.FK_TurmaAluno_Turma">
+      <End Role="Turma" EntitySet="Turma" />
+      <End Role="Aluno_Turma" EntitySet="Aluno_Turma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CursoCursoTurno" Association="Self.FK_CursoCursoTurno">
+      <End Role="Curso" EntitySet="Curso" />
+      <End Role="CursoTurno" EntitySet="CursoTurno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CursoDisciplina" Association="Self.FK_CursoDisciplina">
+      <End Role="Curso" EntitySet="Curso" />
+      <End Role="Disciplina" EntitySet="Disciplina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TurnoCursoTurno" Association="Self.FK_TurnoCursoTurno">
+      <End Role="Turno" EntitySet="Turno" />
+      <End Role="CursoTurno" EntitySet="CursoTurno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DisciplinaTurma" Association="Self.FK_DisciplinaTurma">
+      <End Role="Disciplina" EntitySet="Disciplina" />
+      <End Role="Turma" EntitySet="Turma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfessorTurma" Association="Self.FK_ProfessorTurma">
+      <End Role="Professor" EntitySet="Professor" />
+      <End Role="Turma" EntitySet="Turma" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

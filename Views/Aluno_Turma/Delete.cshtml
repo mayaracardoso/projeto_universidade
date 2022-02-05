@@ -1,0 +1,54 @@
+﻿@model ProjetoUniversidade.Models.Aluno_Turma
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h3>Cancelar Matrícula</h3>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.media)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.media)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.faltas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.faltas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aluno.nomeAluno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aluno.nomeAluno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Turma.codigoTurma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Turma.codigoTurma)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,73 @@
+﻿@model ProjetoUniversidade.Models.Professor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h3>Detalhes do Cadastro</h3>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nomeProfessor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nomeProfessor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.matriculaProfessor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.matriculaProfessor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cpfProfessor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cpfProfessor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.formacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.formacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefoneProfessor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefoneProfessor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emailProfessor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emailProfessor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.senhaProfessor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.senhaProfessor)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdProfessor }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

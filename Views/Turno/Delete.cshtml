@@ -1,0 +1,30 @@
+﻿@model ProjetoUniversidade.Models.Turno
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h3>Excluir Cadastro</h3>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.descricaoTurno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descricaoTurno)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>

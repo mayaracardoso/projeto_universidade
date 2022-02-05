@@ -1,0 +1,49 @@
+﻿@model ProjetoUniversidade.Models.Turma
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h3>Detalhes do Cadastro</h3>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.codigoTurma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigoTurma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaSemana)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaSemana)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Disciplina.nomeDisciplina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Disciplina.nomeDisciplina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Professor.nomeProfessor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Professor.nomeProfessor)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdTurma }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

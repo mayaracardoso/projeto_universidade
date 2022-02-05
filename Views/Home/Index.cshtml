@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <h2>Selecione uma forma de pesquisa:</h2>
+        
+        <div class="row" style="text-align:center">
+            <a class="btn btn-primary btn-lg" id="cursos">Cursos oferecidos</a>
+            <a class="btn btn-primary btn-lg" id="disciplinas">Grade de disciplinas</a>
+            <a class="btn btn-primary btn-lg" id="agenda">Agenda de turmas</a>
+        </div>
+        <div class="row" id="form-cursos">
+            <h2>Selecione um turno para ver todos os cursos oferecidos no turno escolhido:</h2>
+            <form class="form-inline">
+                <div class="form-group">
+                    <label>Turno existente:</label>
+                    @Html.DropDownList("Turno") 
+                </div>
+                <button type="button" id="pesquisarCursos" class="btn btn-primary btn-lg">Ver cursos no turno</button>
+            </form>
+
+        </div>
+        <div class="row" id="resultados"></div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+
+            $("#cursos").click(function () {
+                $("#form-cursos").slideToggle("slow");
+                $("#form-disciplinas").hide();
+                $("#form-agenda").hide();
+                $("#resultados").hide();
+                //Desabilita o botão atualmente clicado e habilita os outros botões
+                $("#cursos").prop("disabled", true);
+                $("#disciplinas").prop("disabled", false);
+                $("#agenda").prop("disabled", false);
+            });
+            $("#disciplinas").click(function () {
+                $("#form-disciplinas").slideToggle("slow");
+                $("#form-cursos").hide();
+                $("#form-agenda").hide();
+                $("#resultados").hide();
+                //Desabilita o botão atualmente clicado e habilita os outros botões
+                $("#disciplinas").prop("disabled", true);
+                $("#cursos").prop("disabled", false);
+                $("#agenda").prop("disabled", false);
+            });
+            $("#agenda").click(function () {
+                $("#form-agenda").slideToggle("slow");
+                $("#form-cursos").hide();
+                $("form-disciplinas").hide();
+                //Desabilita o botão atualmente clicado e habilita os outros botões
+                $("#agenda").prop("disabled", true);
+                $("#cursos").prop("disabled", false);
+                $("#disciplinas").prop("disabled", false);
+            });
+        });
+
+        $(function () {
+            $("#pesquisarCursos").on("click", function () {
+                var pesquisa = { IdTurno: $("#Turno").val()};
+
+                $.getJSON("/home/PesquisarCurso", pesquisa, function (data) {
+                    var resultados = $("#resultados");
+                    resultados.empty();
+
+                    if (data.length == 0) {
+                        resultados.append('<div class="alert alert-warning">Não encontramos nenhum curso</div>');
+                        return false;
+                    }
+                    for (var i = 0; i < data.length; i++) {                        
+                        resultados.append('<div class="alert alert-success">' +
+                            '<h4><b>' + data[i].nomeCurso + '</b></h4>' +
+                            '<p><b>Endereço:</b>' + data[i].duracao + '</p>' +
+                            '<p><b>Telefone:</b>' + data[i].modalidade + '</p>' +
+                            '</div>');
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+    }
+
+
+
+
+

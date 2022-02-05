@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ProjetoUniversidade.Models.Aluno_Turma>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Matrícula</h2>
+
+<p>
+    @Html.ActionLink("Matricular Aluno", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.media)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.faltas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aluno.nomeAluno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Turma.codigoTurma)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.media)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.faltas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Aluno.nomeAluno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Turma.codigoTurma)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdAluno_Turma }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.IdAluno_Turma }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.IdAluno_Turma })
+        </td>
+    </tr>
+}
+
+</table>

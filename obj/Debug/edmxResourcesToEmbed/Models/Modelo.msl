@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BaancoUniversidadeModelStoreContainer" CdmEntityContainer="BaancoUniversidadeEntities1">
+    <EntitySetMapping Name="Administrador">
+      <EntityTypeMapping TypeName="BaancoUniversidadeModel.Administrador">
+        <MappingFragment StoreEntitySet="Administrador">
+          <ScalarProperty Name="IdAdministrador" ColumnName="IdAdministrador" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="senha" ColumnName="senha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Aluno">
+      <EntityTypeMapping TypeName="BaancoUniversidadeModel.Aluno">
+        <MappingFragment StoreEntitySet="Aluno">
+          <ScalarProperty Name="IdAluno" ColumnName="IdAluno" />
+          <ScalarProperty Name="nomeAluno" ColumnName="nomeAluno" />
+          <ScalarProperty Name="matriculaAluno" ColumnName="matriculaAluno" />
+          <ScalarProperty Name="cpfAluno" ColumnName="cpfAluno" />
+          <ScalarProperty Name="telefoneAluno" ColumnName="telefoneAluno" />
+          <ScalarProperty Name="emailAluno" ColumnName="emailAluno" />
+          <ScalarProperty Name="senhaAluno" ColumnName="senhaAluno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Aluno_Turma">
+      <EntityTypeMapping TypeName="BaancoUniversidadeModel.Aluno_Turma">
+        <MappingFragment StoreEntitySet="Aluno_Turma">
+          <ScalarProperty Name="IdAluno_Turma" ColumnName="IdAluno_Turma" />
+          <ScalarProperty Name="IdTurma" ColumnName="IdTurma" />
+          <ScalarProperty Name="IdAluno" ColumnName="IdAluno" />
+          <ScalarProperty Name="media" ColumnName="media" />
+          <ScalarProperty Name="faltas" ColumnName="faltas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Curso">
+      <EntityTypeMapping TypeName="BaancoUniversidadeModel.Curso">
+        <MappingFragment StoreEntitySet="Curso">
+          <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+          <ScalarProperty Name="nomeCurso" ColumnName="nomeCurso" />
+          <ScalarProperty Name="duracao" ColumnName="duracao" />
+          <ScalarProperty Name="modalidade" ColumnName="modalidade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CursoTurno">
+      <EntityTypeMapping TypeName="BaancoUniversidadeModel.CursoTurno">
+        <MappingFragment StoreEntitySet="CursoTurno">
+          <ScalarProperty Name="IdCursoTurno" ColumnName="IdCursoTurno" />
+          <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+          <ScalarProperty Name="IdTurno" ColumnName="IdTurno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Disciplina">
+      <EntityTypeMapping TypeName="BaancoUniversidadeModel.Disciplina">
+        <MappingFragment StoreEntitySet="Disciplina">
+          <ScalarProperty Name="IdDisciplina" ColumnName="IdDisciplina" />
+          <ScalarProperty Name="nomeDisciplina" ColumnName="nomeDisciplina" />
+          <ScalarProperty Name="codigoDisciplina" ColumnName="codigoDisciplina" />
+          <ScalarProperty Name="numeroAulas" ColumnName="numeroAulas" />
+          <ScalarProperty Name="periodo" ColumnName="periodo" />
+          <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Professor">
+      <EntityTypeMapping TypeName="BaancoUniversidadeModel.Professor">
+        <MappingFragment StoreEntitySet="Professor">
+          <ScalarProperty Name="IdProfessor" ColumnName="IdProfessor" />
+          <ScalarProperty Name="nomeProfessor" ColumnName="nomeProfessor" />
+          <ScalarProperty Name="matriculaProfessor" ColumnName="matriculaProfessor" />
+          <ScalarProperty Name="cpfProfessor" ColumnName="cpfProfessor" />
+          <ScalarProperty Name="formacao" ColumnName="formacao" />
+          <ScalarProperty Name="telefoneProfessor" ColumnName="telefoneProfessor" />
+          <ScalarProperty Name="emailProfessor" ColumnName="emailProfessor" />
+          <ScalarProperty Name="senhaProfessor" ColumnName="senhaProfessor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Turma">
+      <EntityTypeMapping TypeName="BaancoUniversidadeModel.Turma">
+        <MappingFragment StoreEntitySet="Turma">
+          <ScalarProperty Name="IdTurma" ColumnName="IdTurma" />
+          <ScalarProperty Name="codigoTurma" ColumnName="codigoTurma" />
+          <ScalarProperty Name="IdDisciplina" ColumnName="IdDisciplina" />
+          <ScalarProperty Name="IdProfessor" ColumnName="IdProfessor" />
+          <ScalarProperty Name="DiaSemana" ColumnName="DiaSemana" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Turno">
+      <EntityTypeMapping TypeName="BaancoUniversidadeModel.Turno">
+        <MappingFragment StoreEntitySet="Turno">
+          <ScalarProperty Name="IdTurno" ColumnName="IdTurno" />
+          <ScalarProperty Name="descricaoTurno" ColumnName="descricaoTurno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

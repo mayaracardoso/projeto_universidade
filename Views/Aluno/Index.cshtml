@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ProjetoUniversidade.Models.Aluno>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Aluno</h2>
+
+<p>
+    @Html.ActionLink("Novo Aluno", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nomeAluno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.matriculaAluno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cpfAluno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefoneAluno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.emailAluno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.senhaAluno)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nomeAluno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.matriculaAluno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cpfAluno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telefoneAluno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.emailAluno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.senhaAluno)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdAluno }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.IdAluno }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.IdAluno })
+        </td>
+    </tr>
+}
+
+</table>

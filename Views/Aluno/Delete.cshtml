@@ -1,0 +1,71 @@
+﻿@model ProjetoUniversidade.Models.Aluno
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Excluir Aluno</h2>
+
+<div>
+    <h4>Aluno</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nomeAluno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nomeAluno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.matriculaAluno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.matriculaAluno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cpfAluno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cpfAluno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefoneAluno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefoneAluno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emailAluno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emailAluno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.senhaAluno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.senhaAluno)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>

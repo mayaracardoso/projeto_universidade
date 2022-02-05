@@ -1,0 +1,49 @@
+﻿@model ProjetoUniversidade.Models.Aluno_Turma
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h3>Dados da Matrícula</h3>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.media)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.media)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.faltas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.faltas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aluno.nomeAluno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aluno.nomeAluno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Turma.codigoTurma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Turma.codigoTurma)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdAluno_Turma }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

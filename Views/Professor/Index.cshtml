@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ProjetoUniversidade.Models.Professor>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Professor</h2>
+
+<p>
+    @Html.ActionLink("Novo Professor", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nomeProfessor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.matriculaProfessor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cpfProfessor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.formacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefoneProfessor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.emailProfessor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.senhaProfessor)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nomeProfessor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.matriculaProfessor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cpfProfessor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.formacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telefoneProfessor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.emailProfessor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.senhaProfessor)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdProfessor }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.IdProfessor }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.IdProfessor })
+        </td>
+    </tr>
+}
+
+</table>
